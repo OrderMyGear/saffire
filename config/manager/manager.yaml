@@ -27,7 +27,7 @@ spec:
         - /manager
         args:
         - --enable-leader-election
-        image: gcr.io/omg-img/saffire:main
+        image: gcr.io/omg-img/saffire:latest
         name: manager
         resources:
           limits:
