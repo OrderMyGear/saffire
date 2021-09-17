@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= quay.io/fairwinds/saffire:latest
+IMG ?= gcr.io/omg-img/saffire:latest
 # Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS ?= "crd:trivialVersions=true,crdVersions=v1"
 
@@ -19,7 +19,8 @@ test: generate fmt vet manifests
 
 # Build manager binary
 manager: generate fmt vet
-	go build -o bin/manager main.go
+	GOOS=linux GOARCH=amd64 go build -o bin/manager main.go
+	GOOS=linux GOARCH=amd64 go build -o ./saffire main.go
 
 # Run against the configured Kubernetes cluster in ~/.kube/config
 run: generate fmt vet manifests
