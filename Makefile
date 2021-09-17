@@ -20,7 +20,8 @@ test: generate fmt vet manifests
 # Build manager binary
 manager: generate fmt vet
 	GOOS=linux GOARCH=amd64 go build -o bin/manager main.go
-	GOOS=linux GOARCH=amd64 go build -o ./saffire main.go
+	cp bin/manager ./saffire
+	cp bin/manager ./manager
 
 # Run against the configured Kubernetes cluster in ~/.kube/config
 run: generate fmt vet manifests
