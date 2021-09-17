@@ -27,7 +27,7 @@ spec:
         - /manager
         args:
         - --enable-leader-election
-        image: quay.io/fairwinds/saffire:main
+        image: gcr.io/omg-img/saffire:main
         name: manager
         resources:
           limits:
